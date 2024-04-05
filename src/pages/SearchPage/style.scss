@@ -1,0 +1,71 @@
+@import '../../styles/index.scss';
+
+.search-page {
+    &__header {
+        margin-top: 2em;
+        &__main {
+            display: flex;
+            gap: 0.2em;
+            margin-bottom: 0.5em;
+        }
+
+        &__secondary {
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+            &__choosed-genres {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5em;
+                &__item {
+                    border: 1px solid $danger;
+                    padding: .2em;
+                    border-radius: $rounded;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+
+            &__pagination {
+                display: flex;
+                justify-content: center;
+            }
+
+        }
+    }
+
+    &__loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__display-found {
+        display: grid;
+        gap: 0.5em;
+        grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+        &__error {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.choosed-mode {
+    display: flex;
+    align-items: center;
+    border: 2px solid $primary;
+    border-radius: $rounded;
+    padding: .5em;
+    color: white;
+}
+
+.mode {
+    display: flex;
+    align-items: center;
+    border-radius: $rounded;
+    padding: .5em;
+    color: white;
+}

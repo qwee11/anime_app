@@ -1,0 +1,32 @@
+@import '../../styles/index.scss';
+
+.slick-slider {
+
+    padding: 0 1em 0 1em;
+
+    height: 30%;
+
+    &__card-wrapper {
+        padding: .2em;
+    }
+
+}
+
+.slick-prev:before {
+    color: $black;
+}
+
+.slick-next:before {
+    color: $black;
+}
+
+[data-bs-theme="dark"] {
+    .slick-prev:before {
+        color: $white;
+    }
+
+    .slick-next:before {
+        color: $white;
+    }
+
+}

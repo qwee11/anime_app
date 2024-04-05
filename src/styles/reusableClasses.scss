@@ -1,0 +1,21 @@
+.c-pointer {
+    cursor: pointer;
+}
+
+.text-dotted-line-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.text-dotted {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}

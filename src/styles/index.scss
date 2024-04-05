@@ -1,0 +1,17 @@
+$primary: #95109c;
+
+@import './reusableClasses.scss';
+@import './variables.scss';
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+a:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+a:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}

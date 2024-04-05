@@ -1,0 +1,79 @@
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
+
+.home-page {
+    &__titles {
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+
+        &__item {
+            text-align: center;
+            &__err {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    
+    &__heading {
+        padding: 1em 0 1em 0;
+
+        display: block;
+        grid-template-columns: 1fr 1fr;
+
+
+
+        @include media-breakpoint-up(md) {
+            display: grid;
+        }
+
+        &__main {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            justify-self: start;
+
+            &__greeting {
+                font-size: 250%;
+
+
+            }
+
+            &__modes {
+                display: flex;
+                justify-content: flex-start;
+                gap: 1em;
+            }
+        }
+
+        &__secondary {
+            display: none;
+
+            @include media-breakpoint-up(md) {
+                display: flex;
+            }
+
+            justify-content: flex-end;
+
+            >img {
+                width: 35%;
+                animation: imgAnim 3s alternate infinite;
+
+                @keyframes imgAnim {
+                    from {
+                        filter: drop-shadow(1px 1px 2px);
+                    }
+                
+                    to {
+                        filter: drop-shadow(1px 1px 6px);
+                        transform: scale(1.04) rotateX(13deg);
+                    }
+                }
+            }
+        }
+    }
+}
