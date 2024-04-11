@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import './style.scss';
 import { NavLink } from 'react-router-dom';
 
-type mangaTypes = "Manga" | "Novel" | "Lightnovel" | "Oneshot" | "Doujin" | "Manhwa" | "Manhua"
+type mangaVariantTypes = "Manga" | "Novel" | "Lightnovel" | "Oneshot" | "Doujin" | "Manhwa" | "Manhua"
 
 const mangaVariant = ["Manga", "Novel", "Lightnovel", "Oneshot", "Doujin", "Manhwa", "Manhua"]
 
@@ -12,7 +12,7 @@ type props = {
     title: string,
     img: string,
     synopsis: string;
-    type: mangaTypes  | string
+    type: mangaVariantTypes  | string
 }
 
 const TitleCard: React.FC<props> = ({ mal_id, img, title, synopsis, type }) => {

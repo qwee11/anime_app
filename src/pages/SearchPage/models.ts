@@ -1,3 +1,5 @@
+import { animeAPI } from "../../services/animeService"
+import { mangaAPI } from "../../services/mangaService"
 import { animeResponse } from "../../services/models"
 
 export type searchPageContext = {
@@ -22,3 +24,8 @@ export type searchPageContext = {
         data: animeResponse | null,
     }
 }
+
+type useLazyAnimeSearchType = ReturnType<typeof animeAPI.useLazyGetSearchedAnimeQuery>
+type useLazyMangaSearchType = ReturnType<typeof mangaAPI.useLazyGetSearchedMangaQuery>
+
+export type useLazyTitleSearchType = useLazyAnimeSearchType | useLazyMangaSearchType;

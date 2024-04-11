@@ -2,19 +2,7 @@ import React, { useState } from 'react'
 import { Button, Card } from 'react-bootstrap';
 import CharacterModal from '../CharacterModal/CharacterModal';
 import './styles.scss'
-
-type voiceActor = {
-    person: {
-        mal_id: number,
-        images: {
-            jpg: {
-                image_url: string
-            }
-        },
-        name: string
-    },
-    language: string
-}
+import { voiceActor } from '../../../../services/models';
 
 type props = {
     character: {
@@ -31,6 +19,7 @@ type props = {
 }
 
 const CharacterCard: React.FC<props> = ({ character, voiceActors, role }) => {
+    
     const [showCharacterModal, setShowCharacterModal] = useState(false);
 
     return (

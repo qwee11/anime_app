@@ -8,11 +8,11 @@ type props = {
 }
 
 const GenreItem: React.FC<props> = ({ genreName, mal_id }) => {
-    const searchPageContext = useContext(SearchPageContext)!;
+    const {states, statesSetters} = useContext(SearchPageContext)!;
 
     const deleteGenreFromList = () => {
-        searchPageContext.statesSetters.setChoosenGenresIds(
-            searchPageContext.states.choosenGenresIds.filter(genre => genre.id !== mal_id)
+        statesSetters.setChoosenGenresIds(
+            states.choosenGenresIds.filter(genre => genre.id !== mal_id)
         )
     }
  

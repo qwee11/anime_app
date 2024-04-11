@@ -140,12 +140,12 @@ export type mangaStatisticsResponse = {
 
 export type topAnimeArgs = {
     page: number,
-    filter: "airing" | "upcoming" | "bypopularity" | "favorite"
+    filter: string
 }
 
 export type topMangaArgs = {
     page: number,
-    filter: "publishing" | "upcoming" | "bypopularity" | "favorite"
+    filter: string
 }
 
 export type searchedTitlesArgs = {

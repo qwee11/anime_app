@@ -5,7 +5,7 @@ import { SearchPageContext } from '../SearchPageContext';
 const years: number[] = [];
 (() => {
     const date = new Date;
-    for (let i = date.getFullYear(); i > 1920; i--) {
+    for (let i = date.getFullYear(); i > 1919; i--) {
         years.push(i);
     }
 })()

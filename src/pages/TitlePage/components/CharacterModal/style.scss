@@ -14,7 +14,8 @@
         &__voice-actors {
             &__actor {
                 display: flex;
-                flex-direction: column;
+                padding: 1em;
+                justify-content: space-evenly;
                 align-items: center;
                 > img {
                     width: 25%;

@@ -5,11 +5,11 @@ import { SearchPageContext } from '../SearchPageContext';
 
 
 const DisplayPagination = () => {
-    const searchPageContext = useContext(SearchPageContext)!;
+    const {states, statesSetters, utils} = useContext(SearchPageContext)!;
 
-    const currentPage = searchPageContext.states.currentPage;
-    const pageMax = searchPageContext.utils.last_visible_page;
-    const setCurrentPage = searchPageContext.statesSetters.setCurrentPage
+    const currentPage = states.currentPage;
+    const pageMax = utils.last_visible_page;
+    const setCurrentPage = statesSetters.setCurrentPage
 
     const [displayPages, setDisplayPages] = useState<number[]>([]);
 

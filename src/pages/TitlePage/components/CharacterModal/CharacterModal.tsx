@@ -1,19 +1,7 @@
-import React, { SetStateAction } from 'react'
+import React from 'react'
 import { Button, Modal, Tab, Tabs } from 'react-bootstrap'
 import './style.scss'
-
-type voiceActor = {
-    person: {
-        mal_id: number,
-        images: {
-            jpg: {
-                image_url: string
-            }
-        },
-        name: string
-    },
-    language: string
-}
+import { voiceActor } from '../../../../services/models';
 
 type props = {
     show: boolean,
@@ -31,7 +19,7 @@ type props = {
 }
 
 const CharacterModal: React.FC<props> = ({ show, closeModal, character, voice_actors }) => {
-    
+
     return (
         <Modal
             show={show}
@@ -62,10 +50,10 @@ const CharacterModal: React.FC<props> = ({ show, closeModal, character, voice_ac
                                 return (
                                     <Tab eventKey={actor.language + actor.person.mal_id} key={actor.person.mal_id} title={actor.language} >
                                         <div className='character-modal__content__voice-actors__actor' >
-                                        <img src={actor.person.images.jpg.image_url} alt="img" />
-                                        <p>
-                                            {actor.person.name}
-                                        </p>
+                                            <img src={actor.person.images.jpg.image_url} alt={actor.person.name + 'img'} />
+                                            <p>
+                                                {actor.person.name}
+                                            </p>
                                         </div>
                                     </Tab>
                                 )

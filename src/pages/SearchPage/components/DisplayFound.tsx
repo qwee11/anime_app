@@ -1,9 +1,9 @@
 import React from 'react'
 import TitleCard from '../../../components/TitleCard/TitleCard';
-import { Anime } from '../../../services/models';
+import { Anime, Manga } from '../../../services/models';
 
 type props = {
-    titleList: Anime[],
+    titleList: Anime[] | Manga[],
     isError: boolean
 }
 

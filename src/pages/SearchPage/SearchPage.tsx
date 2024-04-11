@@ -1,25 +1,17 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SearchPageContext } from './SearchPageContext';
 import './style.scss'
-import Header from './components/Header';
-import { animeAPI } from '../../services/animeService';
+import Heading from './components/Heading';
 import DisplayFound from './components/DisplayFound';
 import { Spinner } from 'react-bootstrap';
-import { redirect, useNavigate } from 'react-router-dom';
-import { mangaAPI } from '../../services/mangaService';
-
-type useLazyAnimeSearchType = ReturnType<typeof animeAPI.useLazyFetchSearchedAnimeQuery>
-type useLazyMangaSearchType = ReturnType<typeof mangaAPI.useLazyFetchSearchedMangaQuery>
-
-type useLazyTitleSearchType = useLazyAnimeSearchType | useLazyMangaSearchType;
+import { lazyGetSearchedTitlesWithMode } from './withModeFunction';
 
 type props = {
     mode: 'anime' | 'manga',
-    lazySearchFunction: () => useLazyTitleSearchType,
 }
 
-const SearchPage: React.FC<props> = ({mode, lazySearchFunction}) => {
-    const navigate = useNavigate();
+const SearchPage: React.FC<props> = ({mode}) => {
+
     const [currentPage, setCurrentPage] = useState(1);
     const [queryInput, setQueryInput] = useState('');
 
@@ -27,7 +19,7 @@ const SearchPage: React.FC<props> = ({mode, lazySearchFunction}) => {
     const [choosenYear, setChoosenYear] = useState<number | null>(null);
     const [choosenOrder, setChoosenOrder] = useState<string | null>(null);
 
-    const [trigger, { data: titleData, isError: titleError, isLoading: titleIsLoading }] = lazySearchFunction();
+    const [trigger, { data: titlesData, isError: titlesError, isLoading: titlesIsLoading }] = lazyGetSearchedTitlesWithMode(mode)();
 
     const triggerArgs = {
         genres: choosenGenresIds.length === 0 ? null : choosenGenresIds.map(genre => genre.id),
@@ -63,17 +55,19 @@ const SearchPage: React.FC<props> = ({mode, lazySearchFunction}) => {
                 setQueryInput,
             },
             utils: {
-                last_visible_page: titleData && titleData.pagination.last_visible_page || 0,
+                last_visible_page: titlesData && titlesData.pagination.last_visible_page || 0,
                 fetchData,
-                data: titleData ? titleData : null,
+                data: titlesData ? titlesData : null,
             }
         }} >
+
             <div className='search-page' >
-                <Header />
-                {titleIsLoading ? <div className='search-page__loader' ><Spinner  variant='primary' animation='border' /></div>
-                    : titleData && <DisplayFound isError={titleError} titleList={titleData.data} />
+                <Heading />
+                {titlesIsLoading ? <div className='search-page__loader' ><Spinner  variant='primary' animation='border' /></div>
+                    : titlesData && <DisplayFound isError={titlesError} titleList={titlesData.data} />
                 }
             </div>
+
         </SearchPageContext.Provider>
     )
 }

@@ -5,7 +5,7 @@ export const mangaAPI = createApi({
     reducerPath: 'mangaAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.jikan.moe/v4' }),
     endpoints: (build) => ({
-        fetchTopManga: build.query<mangaResponse, topMangaArgs>({
+        getTopManga: build.query<mangaResponse, topMangaArgs>({
             query: (args: topMangaArgs) => ({
                 url: '/top/manga',
                 params: {
@@ -14,27 +14,27 @@ export const mangaAPI = createApi({
                 }
             })
         }),
-        fetchMangaFull: build.query<{ data: Manga }, string>({
+        getMangaFull: build.query<{ data: Manga }, string>({
             query: (id: string) => ({
                 url: `/manga/${id}/full`
             })
         }),
-        fetchMangaStatistics: build.query<{ data: mangaStatisticsResponse }, string>({
+        getMangaStatistics: build.query<{ data: mangaStatisticsResponse }, string>({
             query: (id: string) => ({
                 url: `manga/${id}/statistics`,
             })
         }),
-        fetchMangaGenres: build.query<{ data: titleGenres[] }, null>({
+        getMangaGenres: build.query<{ data: titleGenres[] }, null>({
             query: () => ({
                 url: `genres/manga`
             })
         }),
-        fetchMangaCharacters: build.query<{data: mangaCharactersResponse[]}, string>({
+        getMangaCharacters: build.query<{data: mangaCharactersResponse[]}, string>({
             query: (id: string) => ({
                 url: `manga/${id}/characters`
             })
         }),
-        fetchSearchedManga: build.query<mangaResponse, searchedTitlesArgs>({
+        getSearchedManga: build.query<mangaResponse, searchedTitlesArgs>({
             query: (args: searchedTitlesArgs) => {
                 const params = Object.fromEntries(
                     Object.entries(args).filter(([k, v]) => v !== null)

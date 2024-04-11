@@ -1,12 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 import './style.scss';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { useParams } from 'react-router-dom';
-import { animeAPI } from '../../services/animeService';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import Heading from './components/Heading';
-import { mangaAPI } from '../../services/mangaService';
 import TitleInfo from './components/TitleInfo';
 import { Spinner } from 'react-bootstrap';
+import { getTitleFullWithMode } from './withModeFunctions';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -17,76 +16,46 @@ type props = {
 const TitlePage: React.FC<props> = ({ mode }) => {
   const id = useParams().id!;
 
-  if (mode === 'anime') {
-    const { data: animeFull, error, isLoading } = animeAPI.useFetchAnimeFullQuery(id);
+  const navigate = useNavigate();
 
+  const { data, error, isLoading } = getTitleFullWithMode(mode)(id);
 
+  useEffect(() => {
     if (error) {
-      return <h1>Error occured!</h1>
+      navigate('/error');
     }
+  }, [error])
 
-    if (isLoading) {
-      return <div className='spinner'><Spinner variant='primary' animation='grow' /></div>
-    }
 
-    if (animeFull) {
-      return (
-        <div className='title-page' >
-          <Heading
-            imgUrl={animeFull.data.images.webp.large_image_url}
-            isBroadcastring={animeFull.data.airing}
-            mode='anime'
-            title={animeFull.data.title_english || animeFull.data.title}
-          />
-          <TitleInfo
-            id={id}
-            mode={mode}
-            popularity={animeFull.data.popularity}
-            rank={animeFull.data.rank}
-            score={animeFull.data.score}
-            synopsis={animeFull.data.synopsis}
-            titleGenres={animeFull.data.genres}
-            trailerEmbedUrl={animeFull.data.trailer.embed_url}
-          />
-        </div >
-      )
-    }
+  if (error) {
+    return <>Erorr zxc</>;
   }
 
-  if (mode === 'manga') {
-    const { data: mangaFull, error, isLoading } = mangaAPI.useFetchMangaFullQuery(id);
+  if (isLoading) {
+    return <div className='spinner'><Spinner variant='primary' animation='grow' /></div>
+  }
 
-
-    if (error) {
-      return <h1>Error occured!</h1>
-    }
-
-    if (isLoading) {
-      return <h1>Loading...</h1>
-    }
-
-    if (mangaFull) {
-      return (
-        <div className='title-page' >
-          <Heading
-            imgUrl={mangaFull.data.images.webp.large_image_url}
-            isBroadcastring={mangaFull.data.publishing}
-            mode='manga'
-            title={mangaFull.data.title_english || mangaFull.data.title}
-          />
-          <TitleInfo
-            id={id}
-            mode={mode}
-            popularity={mangaFull.data.popularity}
-            rank={mangaFull.data.rank}
-            score={mangaFull.data.score}
-            synopsis={mangaFull.data.synopsis}
-            titleGenres={mangaFull.data.genres}
-            trailerEmbedUrl={null}
-          />
-        </div >
-      )
-    }
+  if (data) {
+    return (
+      <div className='title-page' >
+        <Heading
+          imgUrl={data.data.images.webp.large_image_url}
+          isBroadcastring={data.data.airing}
+          mode='anime'
+          title={data.data.title_english || data.data.title}
+        />
+        <TitleInfo
+          id={id}
+          mode={mode}
+          popularity={data.data.popularity}
+          rank={data.data.rank}
+          score={data.data.score}
+          synopsis={data.data.synopsis}
+          titleGenres={data.data.genres}
+          trailerEmbedUrl={mode === 'anime' ? data.data.trailer.embed_url : null}
+        />
+      </div >
+    )
   }
 }
 

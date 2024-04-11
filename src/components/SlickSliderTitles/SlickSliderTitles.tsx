@@ -43,17 +43,6 @@ const settings = {
   ]
 };
 
-type titleData = {
-  mal_id: number,
-  images: {
-    webp: {
-      image_url: string
-    }
-  },
-  title: string,
-  synopsis: string
-}
-
 type props = {
   titles: Anime[] | Manga[]
 }
