@@ -37,7 +37,7 @@ const GenresSelect = () => {
                 return <option value={genre.mal_id + '/' + genre.name} key={genre.mal_id} >{genre.name}</option>
             })}
         </Form.Select>
-    )   
-}
+    );
+};
 
-export default GenresSelect
+export default GenresSelect;

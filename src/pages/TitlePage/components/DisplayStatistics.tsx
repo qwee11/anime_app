@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { Spinner } from 'react-bootstrap'
 import DisplayWatchPie from './DisplaysWatchPie'
 import DisplayScoresBar from './DisplayScoresBars'
+
 import { getTitleStatisticsWithMode } from '../withModeFunctions'
 
 type props = {
@@ -57,8 +59,8 @@ const DisplayStatistics: React.FC<props> = ({ mode, id }) => {
                     />
                 </div>
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
-export default DisplayStatistics
+export default DisplayStatistics;

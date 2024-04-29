@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Manga, mangaCharactersResponse, mangaResponse, mangaStatisticsResponse, searchedTitlesArgs, titleGenres, topMangaArgs } from "./models";
+import { Manga, mangaCharactersResponse, mangaResponse, mangaStatisticsResponse, searchedTitlesArgs, titleGenres, topTitlesArgs } from "./models";
 
 export const mangaAPI = createApi({
     reducerPath: 'mangaAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.jikan.moe/v4' }),
     endpoints: (build) => ({
-        getTopManga: build.query<mangaResponse, topMangaArgs>({
-            query: (args: topMangaArgs) => ({
+        getTopManga: build.query<mangaResponse, topTitlesArgs>({
+            query: (args: topTitlesArgs) => ({
                 url: '/top/manga',
                 params: {
                     page: args.page,

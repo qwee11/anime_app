@@ -21,7 +21,7 @@ export type searchPageContext = {
     utils: {
         fetchData: () => void,
         last_visible_page: number,
-        data: animeResponse | null,
+        titlesData: animeResponse | null,
     }
 }
 

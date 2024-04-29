@@ -10,7 +10,7 @@ export const lazyGetSearchedTitlesWithMode = (mode: 'anime' | 'manga') => {
 
 export const getGenresWithMode = (mode: 'anime' | 'manga') => {
     if(mode === 'anime') {
-        return animeAPI.useGetAnimeGenresQuery
+        return animeAPI.useGetAnimeGenresQuery;
     }
-    return mangaAPI.useGetMangaGenresQuery
+    return mangaAPI.useGetMangaGenresQuery;
 }

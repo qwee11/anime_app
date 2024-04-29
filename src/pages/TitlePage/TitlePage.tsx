@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
-import './style.scss';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import React from 'react'
+
 import Heading from './components/Heading';
-import TitleInfo from './components/TitleInfo';
 import { Spinner } from 'react-bootstrap';
+import TitleInfo from './components/TitleInfo';
+
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { NavLink, useParams } from 'react-router-dom';
 import { getTitleFullWithMode } from './withModeFunctions';
+
+import './style.scss';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -16,19 +19,17 @@ type props = {
 const TitlePage: React.FC<props> = ({ mode }) => {
   const id = useParams().id!;
 
-  const navigate = useNavigate();
-
   const { data, error, isLoading } = getTitleFullWithMode(mode)(id);
 
-  useEffect(() => {
-    if (error) {
-      navigate('/error');
-    }
-  }, [error])
-
-
   if (error) {
-    return <>Erorr zxc</>;
+    return <div className='title-page__error' >
+      <h1>
+        Error occured!
+      </h1>
+      <div>
+        <NavLink to={'/'}><p className='title-page__error__link c-pointer' >Home page</p></NavLink>
+      </div>
+    </div>;
   }
 
   if (isLoading) {
@@ -41,7 +42,7 @@ const TitlePage: React.FC<props> = ({ mode }) => {
         <Heading
           imgUrl={data.data.images.webp.large_image_url}
           isBroadcastring={data.data.airing}
-          mode='anime'
+          mode={mode}
           title={data.data.title_english || data.data.title}
         />
         <TitleInfo

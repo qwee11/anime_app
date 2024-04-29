@@ -20,7 +20,7 @@ const GenreItem: React.FC<props> = ({ genreName, mal_id }) => {
         <div className='search-page__header__secondary__choosed-genres__item' >
             {genreName} <Button variant='outline-danger' onClick={() => deleteGenreFromList()} >Cancel</Button>
         </div>
-    )
-}
+    );
+};
 
-export default GenreItem
+export default GenreItem;

@@ -138,12 +138,7 @@ export type mangaStatisticsResponse = {
     ]
 }
 
-export type topAnimeArgs = {
-    page: number,
-    filter: string
-}
-
-export type topMangaArgs = {
+export type topTitlesArgs = {
     page: number,
     filter: string
 }

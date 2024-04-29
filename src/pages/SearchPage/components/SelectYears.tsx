@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Form } from 'react-bootstrap';
 import { SearchPageContext } from '../SearchPageContext';
 
@@ -24,7 +24,7 @@ const SelectYears = () => {
                 }
             })}
         </Form.Select>
-    )
-}
+    );
+};
 
-export default SelectYears
+export default SelectYears;

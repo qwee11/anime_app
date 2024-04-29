@@ -18,7 +18,6 @@ const SelectOrder = () => {
                 className='capitalize'
                 onClick={e => setChoosedOrder(e)}
             >
-
                 <option disabled >Order</option>
                 <option value={'none'} >None</option>
                 {orderValues.map(order => {
@@ -29,7 +28,7 @@ const SelectOrder = () => {
                 })}
             </Form.Select>
         </div>
-    )
-}
+    );
+};
 
-export default SelectOrder
+export default SelectOrder;

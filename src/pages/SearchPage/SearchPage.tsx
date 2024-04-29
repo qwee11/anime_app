@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { SearchPageContext } from './SearchPageContext';
-import './style.scss'
+
+import { Spinner } from 'react-bootstrap';
 import Heading from './components/Heading';
 import DisplayFound from './components/DisplayFound';
-import { Spinner } from 'react-bootstrap';
+
+import { SearchPageContext } from './SearchPageContext';
 import { lazyGetSearchedTitlesWithMode } from './withModeFunction';
+
+import './style.scss'
 
 type props = {
     mode: 'anime' | 'manga',
@@ -37,6 +40,14 @@ const SearchPage: React.FC<props> = ({mode}) => {
         trigger(triggerArgs);
     }
 
+    if(titlesError) {
+        return (
+            <h1>
+                Error occured! Try again later.
+            </h1>
+        )
+    }
+
     return (
         <SearchPageContext.Provider value={{
             states: {
@@ -57,7 +68,7 @@ const SearchPage: React.FC<props> = ({mode}) => {
             utils: {
                 last_visible_page: titlesData && titlesData.pagination.last_visible_page || 0,
                 fetchData,
-                data: titlesData ? titlesData : null,
+                titlesData: titlesData ? titlesData : null,
             }
         }} >
 
@@ -69,7 +80,7 @@ const SearchPage: React.FC<props> = ({mode}) => {
             </div>
 
         </SearchPageContext.Provider>
-    )
-}
+    );
+};
 
-export default SearchPage
+export default SearchPage;

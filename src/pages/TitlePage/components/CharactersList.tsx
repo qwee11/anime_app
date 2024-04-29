@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { Spinner } from 'react-bootstrap'
 import CharacterCard from './CharacterCard/CharacterCard'
+
 import { getCharactersWithMode } from '../withModeFunctions'
 
 type props = {
@@ -37,8 +39,8 @@ const CharactersList: React.FC<props> = ({ id, mode }) => {
                     role={null}
                 />)}
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
-export default CharactersList
+export default CharactersList;

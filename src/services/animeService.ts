@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Anime, animeCharactersResponse, titleGenres, animeResponse, animeStatisticsResponse, searchedTitlesArgs, topAnimeArgs } from "./models";
+import { Anime, animeCharactersResponse, titleGenres, animeResponse, animeStatisticsResponse, searchedTitlesArgs, topTitlesArgs } from "./models";
 
 export const animeAPI = createApi({
     reducerPath: 'animeApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.jikan.moe/v4' }),
     endpoints: (build) => ({
-        getTopAnime: build.query<animeResponse, topAnimeArgs>({
-            query: (args: topAnimeArgs) => ({
+        getTopAnime: build.query<animeResponse, topTitlesArgs>({
+            query: (args: topTitlesArgs) => ({
                 url: '/top/anime',
                 params: {
                     page: args.page,

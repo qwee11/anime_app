@@ -1,7 +1,8 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
-import './style.scss';
 import { NavLink } from 'react-router-dom';
+
+import './style.scss';
 
 type mangaVariantTypes = "Manga" | "Novel" | "Lightnovel" | "Oneshot" | "Doujin" | "Manhwa" | "Manhua"
 
@@ -26,7 +27,7 @@ const TitleCard: React.FC<props> = ({ mal_id, img, title, synopsis, type }) => {
                 </Card.Body>
             </Card>
         </NavLink>
-    )
-}
+    );
+};
 
-export default TitleCard
+export default TitleCard;

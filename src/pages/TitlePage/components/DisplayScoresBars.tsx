@@ -44,7 +44,7 @@ const DisplayScoresBar: React.FC<props> = ({scores}) => {
 
   return (
     <Bar data={barData} options={barOptions} />
-  )
-}
+  );
+};
 
-export default DisplayScoresBar
+export default DisplayScoresBar;

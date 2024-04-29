@@ -8,7 +8,7 @@ type props = {
 }
 
 const Heading: React.FC<props> = ({imgUrl, isBroadcastring, title, mode}) => {
-    const isBroadcastringMode = () => {
+    const isBroadcastringWithMode = () => {
         if(mode === 'anime') {
             return isBroadcastring ? 'Airing' : 'Not airing'
         }
@@ -26,7 +26,7 @@ const Heading: React.FC<props> = ({imgUrl, isBroadcastring, title, mode}) => {
                 <div className="title-page__content__image">
                     <img src={imgUrl} alt="img" />
                     <div className="title-page__content__image__text  bg-body-tertiary">
-                        {isBroadcastringMode()}
+                        {isBroadcastringWithMode()}
                     </div>
                 </div>
                 <div className='title-page__content__main' >

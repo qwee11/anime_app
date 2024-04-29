@@ -140,6 +140,23 @@
             gap: 1em;
         }
     }
+
+    &__error {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+
+        margin-top: 4em;
+
+        &__link {
+            transition: all .2s;
+            &:hover {
+                opacity: 0.4;
+            }
+        }
+    }
 }
 
 .spinner {

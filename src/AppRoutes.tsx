@@ -1,4 +1,3 @@
-import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage/HomePage'
 import TitlePage from './pages/TitlePage/TitlePage'
@@ -14,7 +13,6 @@ const AppRoutes = () => {
       <Route path='/manga/:id' element={<TitlePage mode='manga' />} />
       <Route path='/search/anime' element={<SearchPage mode='anime' />} />
       <Route path='/search/manga' element={<SearchPage mode='manga' />} />
-      <Route path='/error' element={<div>Error page // todo</div>} />
     </Routes>
   )
 }

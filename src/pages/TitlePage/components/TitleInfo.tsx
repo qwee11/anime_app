@@ -1,7 +1,9 @@
 import React from 'react'
-import { titleGenres } from '../../../services/models'
+
 import DisplayStatistics from './DisplayStatistics'
 import CharactersList from './CharactersList'
+
+import { titleGenres } from '../../../services/models'
 
 type props = {
     titleGenres: titleGenres[],

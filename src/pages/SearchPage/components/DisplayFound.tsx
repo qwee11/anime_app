@@ -21,7 +21,7 @@ const DisplayFound: React.FC<props> = ({titleList, isError}) => {
 
   return (
     <div className='search-page__display-found' >
-        { titleList.map(title => {
+        { titleList.length === 0 ? <h1>Nothing found!</h1> : titleList.map(title => {
             return <TitleCard 
             type={title.type}
             img={title.images.webp.image_url}
@@ -32,7 +32,7 @@ const DisplayFound: React.FC<props> = ({titleList, isError}) => {
             />
         })}
     </div>
-  )
-}
+  );
+};
 
-export default DisplayFound
+export default DisplayFound;

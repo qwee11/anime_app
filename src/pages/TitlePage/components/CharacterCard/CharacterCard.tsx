@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+
 import { Button, Card } from 'react-bootstrap';
 import CharacterModal from '../CharacterModal/CharacterModal';
-import './styles.scss'
+
 import { voiceActor } from '../../../../services/models';
+
+import './styles.scss'
 
 type props = {
     character: {
@@ -44,7 +47,7 @@ const CharacterCard: React.FC<props> = ({ character, voiceActors, role }) => {
             : <div>{role && role}</div>}
             </Card.Footer>
         </Card>
-    )
-}
+    );
+};
 
-export default CharacterCard
+export default CharacterCard;

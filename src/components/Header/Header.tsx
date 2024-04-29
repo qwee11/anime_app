@@ -1,6 +1,7 @@
-import { Container,  Nav, Navbar } from 'react-bootstrap';
-import './style.scss'
 import { useEffect } from 'react';
+import { Container,  Nav, Navbar } from 'react-bootstrap';
+
+import './style.scss'
 
 const switchTheme = () => {
     const currentTheme = document.querySelector('body')!.dataset['bsTheme'];
@@ -59,7 +60,7 @@ const Header = () => {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

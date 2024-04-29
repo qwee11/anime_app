@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Pagination } from 'react-bootstrap';
 import { SearchPageContext } from '../SearchPageContext';
-
-
 
 const DisplayPagination = () => {
     const {states, statesSetters, utils} = useContext(SearchPageContext)!;
@@ -66,7 +64,7 @@ const DisplayPagination = () => {
             <Pagination.Next onClick={increasePage} />
             <Pagination.Last onClick={() => setCurrentPage(pageMax)} />
         </Pagination>
-    )
-}
+    );
+};
 
-export default DisplayPagination
+export default DisplayPagination;

@@ -1,13 +1,15 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
+
 import { Button, Form } from 'react-bootstrap'
+
+import { Link } from 'react-router-dom';
 import GenresSelect from './GenresSelect'
-import { SearchPageContext } from '../SearchPageContext';
+import DisplayPagination from './DisplayPagination';
 import GenreItem from './GenreItem';
 import SelectYears from './SelectYears';
 import SelectOrder from './SelectOrder';
-import DisplayPagination from './DisplayPagination';
-import { Link } from 'react-router-dom';
 
+import { SearchPageContext } from '../SearchPageContext';
 
 const Heading = () => {
     const { states, statesSetters, utils } = useContext(SearchPageContext)!;
@@ -56,7 +58,7 @@ const Heading = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Heading
+export default Heading;

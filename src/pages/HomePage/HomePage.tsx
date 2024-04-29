@@ -1,7 +1,9 @@
 import React from 'react'
-import './style.scss';
+
 import Heading from './components/Heading';
 import TitlesShowcase from './components/TitlesShowcase';
+
+import './style.scss';
 
 type props = {
   mode: 'anime' | 'manga'
@@ -20,7 +22,7 @@ const HomePage: React.FC<props> = ({ mode }) => {
         <TitlesShowcase argFilter='bypopularity' heading={'Popular ' + mode} mode={mode} />
       </div>
     </div>
-  )
+  );
 };
 
 export default HomePage;

@@ -21,7 +21,7 @@ const Heading = () => {
                 <img src={animePic} alt="animePic" />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Heading
+export default Heading;

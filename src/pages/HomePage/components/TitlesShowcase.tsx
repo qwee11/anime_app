@@ -1,8 +1,8 @@
 import React from 'react'
-import { animeAPI } from '../../../services/animeService'
-import SlickSliderTitles from '../../../components/SlickSliderTitles/SlickSliderTitles'
+
+import SlickSliderTitles from './SlickSliderTitles/SlickSliderTitles'
 import { Spinner } from 'react-bootstrap'
-import { mangaAPI } from '../../../services/mangaService'
+
 import { getTopTitlesWithMode } from '../withModeFunctions'
 
 type props = {
@@ -28,7 +28,7 @@ const TitlesShowcase: React.FC<props> = ({ mode, argFilter, heading }) => {
       </h3>
       {isLoading ? <Spinner variant='primary' animation='border' /> : data && <SlickSliderTitles titles={data.data} />}
     </div>
-  )
-}
+  );
+};
 
-export default TitlesShowcase
+export default TitlesShowcase;

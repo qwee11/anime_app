@@ -1,11 +1,13 @@
 import React from 'react'
+
 import Slider from 'react-slick'
-import TitleCard from '../TitleCard/TitleCard';
+import TitleCard from '../../../../components/TitleCard/TitleCard';
+
+import { Anime, Manga } from '../../../../services/models';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './style.scss'
-import { Anime, Manga } from '../../services/models';
 
 const settings = {
   centerMode: false,
@@ -65,7 +67,7 @@ const SlickSliderTitles: React.FC<props> = ({ titles }) => {
         )}
       </Slider>
     </div>
-  )
-}
+  );
+};
 
-export default SlickSliderTitles
+export default SlickSliderTitles;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Modal, Tab, Tabs } from 'react-bootstrap'
-import './style.scss'
 import { voiceActor } from '../../../../services/models';
+import './style.scss'
 
 type props = {
     show: boolean,
@@ -45,7 +45,7 @@ const CharacterModal: React.FC<props> = ({ show, closeModal, character, voice_ac
                             defaultValue={'Japanese' || 'English'}
                             id="voice-actors-tabs"
                         >
-                            {voice_actors.map((actor, index) => {
+                            {voice_actors.map(actor => {
                                 console.log(actor);
                                 return (
                                     <Tab eventKey={actor.language + actor.person.mal_id} key={actor.person.mal_id} title={actor.language} >
@@ -66,7 +66,7 @@ const CharacterModal: React.FC<props> = ({ show, closeModal, character, voice_ac
                 <Button onClick={closeModal}>Close</Button>
             </Modal.Footer>
         </Modal>
-    )
-}
+    );
+};
 
-export default CharacterModal
+export default CharacterModal;
