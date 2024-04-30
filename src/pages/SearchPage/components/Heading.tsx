@@ -17,26 +17,25 @@ const Heading = () => {
     return (
         <div className='search-page__header' >
             <div className="search-page__header__main">
-                <Link reloadDocument to={'/search/anime'}
-                    className={`${states.mode === 'anime' ? "choosed-mode" : 'mode'}`}
-                >
-                    <div className='c-pointer' >
-                    Anime
-                    </div>
-                </Link>
-                <Link reloadDocument to={'/search/manga'}
-                    className={`${states.mode === 'manga' ? "choosed-mode" : 'mode'}`}
-                >
-                    <div className='c-pointer' >
-                    Manga
-                    </div>
-                </Link>
-                <Form.Control
-                    value={states.queryInput}
-                    onChange={e => statesSetters.setQueryInput(e.target.value)}
-                    placeholder='Search...'
-                />
-                <Button onClick={utils.fetchData} variant='outline-primary' >Search</Button>
+                    <Link reloadDocument to={'/search/anime'}
+                        className={`${states.mode === 'anime' ? "choosed-mode" : 'mode'}`}
+                    >
+                        <div className='c-pointer' >
+                            Anime
+                        </div>
+                    </Link>
+                    <Link reloadDocument to={'/search/manga'}
+                        className={`${states.mode === 'manga' ? "choosed-mode" : 'mode'}`}
+                    >
+                        <div className='c-pointer' >
+                            Manga
+                        </div>
+                    </Link>
+                    <Form.Control
+                        value={states.queryInput}
+                        onChange={e => statesSetters.setQueryInput(e.target.value)}
+                        placeholder='Search...'
+                    />
             </div>
             <div className="search-page__header__secondary">
                 <div className="search-pahe__header__secondary__genres">
@@ -53,6 +52,7 @@ const Heading = () => {
                 <div className="search-page__header__secondary__choose-order">
                     <SelectOrder />
                 </div>
+                <Button onClick={utils.fetchData} variant='outline-primary' >Search</Button>
                 <div className="search-page__header__secondary__pagination">
                     <DisplayPagination />
                 </div>

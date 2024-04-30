@@ -46,7 +46,6 @@ const CharacterModal: React.FC<props> = ({ show, closeModal, character, voice_ac
                             id="voice-actors-tabs"
                         >
                             {voice_actors.map(actor => {
-                                console.log(actor);
                                 return (
                                     <Tab eventKey={actor.language + actor.person.mal_id} key={actor.person.mal_id} title={actor.language} >
                                         <div className='character-modal__content__voice-actors__actor' >

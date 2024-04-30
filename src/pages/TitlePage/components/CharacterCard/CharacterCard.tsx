@@ -32,11 +32,10 @@ const CharacterCard: React.FC<props> = ({ character, voiceActors, role }) => {
                 <Card.Title className='text-dotted' >{character.name}</Card.Title>
             </Card.Body>
 
+                <Button onClick={() => setShowCharacterModal(true)} >Open more</Button>
             <Card.Footer>
                 {voiceActors ? 
                 <div>
-
-                <Button onClick={() => setShowCharacterModal(true)} >Open more</Button>
                 <CharacterModal
                 closeModal={() => setShowCharacterModal(false)}
                 show={showCharacterModal}

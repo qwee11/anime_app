@@ -7,6 +7,9 @@
             display: flex;
             gap: 0.2em;
             margin-bottom: 0.5em;
+            &__form {
+                display: flex;
+            }
         }
 
         &__secondary {
@@ -45,7 +48,7 @@
     &__display-found {
         display: grid;
         gap: 0.5em;
-        grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
         &__error {
             display: flex;
             justify-content: center;

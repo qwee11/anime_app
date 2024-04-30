@@ -37,7 +37,7 @@ export const animeAPI = createApi({
         getSearchedAnime: build.query<animeResponse, searchedTitlesArgs>({
             query: (args: searchedTitlesArgs) => {
                 const params = Object.fromEntries(
-                    Object.entries(args).filter(([k, v]) => v !== null)
+                    Object.entries(args).filter(([_k, v]) => v !== null)
                 )
 
                 return {

@@ -24,7 +24,7 @@
         &__image {
             >img {
                 border-radius: 10px 10px 0 0;
-                height: 20vh;
+                height: 15vh;
 
 
                 @include media-breakpoint-up(sm) {
@@ -49,6 +49,11 @@
             }
 
             &__text {
+                font-size: .7em;
+                word-wrap: break-word;
+                @include media-breakpoint-up(lg) {
+                    font-size: 1em;
+                }
                 text-align: center;
                 padding: .7em;
                 border-radius: $round-bottom;
@@ -63,6 +68,7 @@
 
             &__name {
                 color: $white;
+                font-size: .1em;
             }
         }
     }
@@ -136,8 +142,29 @@
             padding: 1em;
 
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+            font-size: .7em;
             gap: 1em;
+
+            @include media-breakpoint-up(sm) {
+                grid-template-columns: repeat(auto-fill, minmax(8em, 1fr))
+            }
+
+            @include media-breakpoint-up(md) {
+                grid-template-columns: repeat(auto-fill, minmax(8em, 1fr))
+            }
+
+            @include media-breakpoint-up(lg) {
+                grid-template-columns: repeat(auto-fill, minmax(10em, 1fr))
+            }
+
+            @include media-breakpoint-up(xl) {
+                grid-template-columns: repeat(auto-fill, minmax(12em, 1fr))
+            }
+
+            @include media-breakpoint-up(xxl) {
+                grid-template-columns: repeat(auto-fill, minmax(12em, 1fr))
+            }
         }
     }
 
@@ -152,6 +179,7 @@
 
         &__link {
             transition: all .2s;
+
             &:hover {
                 opacity: 0.4;
             }
