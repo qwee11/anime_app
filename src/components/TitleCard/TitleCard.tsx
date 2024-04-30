@@ -18,7 +18,7 @@ type props = {
 
 const TitleCard: React.FC<props> = ({ mal_id, img, title, synopsis, type }) => {
     return (
-        <NavLink to={mangaVariant.includes(type) ? '/manga/' + mal_id : '/anime/' + mal_id} >
+        <NavLink to={mangaVariant.includes(type) ? '/anime_app/manga/' + mal_id : '/anime_app/anime/' + mal_id} >
             <Card className='title-card c-pointer' >
                 <Card.Img variant="top" src={img} />
                 <Card.Body>

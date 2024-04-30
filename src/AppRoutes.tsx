@@ -6,13 +6,13 @@ import SearchPage from './pages/SearchPage/SearchPage'
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path='/' element={<Navigate to={'/home/anime'} />} />
-      <Route path='/home/anime' element={<HomePage mode='anime' />} />
-      <Route path='/home/manga' element={<HomePage mode='manga' />} />
-      <Route path='/anime/:id' element={<TitlePage mode='anime' />} />
-      <Route path='/manga/:id' element={<TitlePage mode='manga' />} />
-      <Route path='/search/anime' element={<SearchPage mode='anime' />} />
-      <Route path='/search/manga' element={<SearchPage mode='manga' />} />
+      <Route path='/anime_app/' element={<Navigate to={'/anime_app/home/anime'} />} />
+      <Route path='/anime_app/home/anime' element={<HomePage mode='anime' />} />
+      <Route path='/anime_app/home/manga' element={<HomePage mode='manga' />} />
+      <Route path='/anime_app/anime/:id' element={<TitlePage mode='anime' />} />
+      <Route path='/anime_app/manga/:id' element={<TitlePage mode='manga' />} />
+      <Route path='/anime_app/search/anime' element={<SearchPage mode='anime' />} />
+      <Route path='/anime_app/search/manga' element={<SearchPage mode='manga' />} />
     </Routes>
   )
 }

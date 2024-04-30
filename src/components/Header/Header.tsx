@@ -41,12 +41,12 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto header__nav">
-                        <Nav.Link href='/home/manga' >
+                        <Nav.Link href='/anime_app/home/manga' >
                             <div className='c-pointer' >
                                 Manga
                             </div>
                         </Nav.Link>
-                        <Nav.Link href='/search/anime' >
+                        <Nav.Link href='/anime_app/search/anime' >
                             <div className='c-pointer' >
                                 Search
                             </div>
