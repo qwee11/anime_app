@@ -36,7 +36,6 @@ const CharactersList: React.FC<props> = ({ id, mode }) => {
                     character={character.character}
                     voiceActors={character.voice_actors}
                     key={character.character.mal_id}
-                    role={null}
                 />)}
             </div>
         );

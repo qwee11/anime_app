@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import { Container,  Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 import './style.scss'
+import { NavLink } from 'react-router-dom';
 
 const switchTheme = () => {
     const currentTheme = document.querySelector('body')!.dataset['bsTheme'];
@@ -14,10 +15,10 @@ const switchTheme = () => {
 
 const applyTheme = () => {
     const appliedTheme = localStorage.getItem('theme');
-    if(!appliedTheme) {
+    if (!appliedTheme) {
         return false;
     }
-    if(appliedTheme === 'dark') {
+    if (appliedTheme === 'dark') {
         document.querySelector('body')!.setAttribute('data-bs-theme', 'dark')
     } else {
         document.querySelector('body')!.setAttribute('data-bs-theme', 'light')
@@ -33,22 +34,28 @@ const Header = () => {
     return (
         <Navbar expand="lg" className="header bg-body-tertiary">
             <Container>
-                <Navbar.Brand href='/' >
+                <Navbar.Brand as={'div'} >
                     <div className='c-pointer' >
-                        Anime App
+                        <NavLink to={'/anime_app/home/anime'} reloadDocument >
+                            Anime App
+                        </NavLink>
                     </div>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto header__nav">
-                        <Nav.Link href='/anime_app/home/manga' >
+                        <Nav.Link as={'div'} >
                             <div className='c-pointer' >
-                                Manga
+                                <NavLink to={'/anime_app/home/manga'} reloadDocument >
+                                    Manga
+                                </NavLink>
                             </div>
                         </Nav.Link>
-                        <Nav.Link href='/anime_app/search/anime' >
+                        <Nav.Link as={'div'} >
                             <div className='c-pointer' >
-                                Search
+                                <NavLink to={'/anime_app/search/anime'} reloadDocument >
+                                    Search
+                                </NavLink>
                             </div>
                         </Nav.Link>
                         <Nav.Link as={'div'} >

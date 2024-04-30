@@ -17,14 +17,14 @@ const Heading = () => {
     return (
         <div className='search-page__header' >
             <div className="search-page__header__main">
-                    <Link reloadDocument to={'/search/anime'}
+                    <Link reloadDocument to={'/anime_app/search/anime'}
                         className={`${states.mode === 'anime' ? "choosed-mode" : 'mode'}`}
                     >
                         <div className='c-pointer' >
                             Anime
                         </div>
                     </Link>
-                    <Link reloadDocument to={'/search/manga'}
+                    <Link reloadDocument to={'/anime_app/search/manga'}
                         className={`${states.mode === 'manga' ? "choosed-mode" : 'mode'}`}
                     >
                         <div className='c-pointer' >

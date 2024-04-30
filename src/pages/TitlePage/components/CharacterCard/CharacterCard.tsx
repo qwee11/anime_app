@@ -17,12 +17,11 @@ type props = {
         },
         name: string,
     },
-    role: string | null,
     voiceActors: voiceActor[] | null
 }
 
-const CharacterCard: React.FC<props> = ({ character, voiceActors, role }) => {
-    
+const CharacterCard: React.FC<props> = ({ character, voiceActors}) => {
+
     const [showCharacterModal, setShowCharacterModal] = useState(false);
 
     return (
@@ -32,18 +31,16 @@ const CharacterCard: React.FC<props> = ({ character, voiceActors, role }) => {
                 <Card.Title className='text-dotted' >{character.name}</Card.Title>
             </Card.Body>
 
-                <Button onClick={() => setShowCharacterModal(true)} >Open more</Button>
+            {voiceActors ? <Button onClick={() => setShowCharacterModal(true)} >Open more</Button> : <div></div> }
             <Card.Footer>
-                {voiceActors ? 
-                <div>
-                <CharacterModal
-                closeModal={() => setShowCharacterModal(false)}
-                show={showCharacterModal}
-                character={character}
-                voice_actors={voiceActors}
-                />
-                </div>
-            : <div>{role && role}</div>}
+                {voiceActors ?
+                        <CharacterModal
+                            closeModal={() => setShowCharacterModal(false)}
+                            show={showCharacterModal}
+                            character={character}
+                            voice_actors={voiceActors}
+                        />
+                    : <></>}
             </Card.Footer>
         </Card>
     );
